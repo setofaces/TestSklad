@@ -1,0 +1,10 @@
+# Project exclude paths
+/common-module/build-tools/target/
+/common-module/dependency-management-bom/target/
+/common-module/dto/target/
+/common-module/target/
+/warehouse-service/core/target/
+/warehouse-service/dependency-management-bom/target/
+/warehouse-service/dto/target/
+/warehouse-service/migration/target/
+/warehouse-service/target/

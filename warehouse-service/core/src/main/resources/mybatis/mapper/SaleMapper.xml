@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="liga.testsklad.repository.SaleRepository">
+
+    <resultMap id="sale" type="liga.testsklad.model.Sale" autoMapping="true">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <insert id="add" >
+        INSERT INTO sale (position_name, dt, amount, money_spent) VALUES
+        (#{positionName}, #{date}, #{amount}, #{moneySpent});
+    </insert>
+
+    <select id="findAll" resultMap="sale">
+        SELECT * FROM sale;
+    </select>
+
+    <select id="findById" resultMap="sale">
+        SELECT * FROM sale
+        WHERE id = #{id};
+    </select>
+
+    <delete id="deleteById">
+        DELETE
+        FROM sale
+        WHERE id = #{id,jdbcType=BIGINT};
+    </delete>
+
+
+</mapper>

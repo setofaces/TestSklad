@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="liga.testsklad.repository.CategoryRepository">
+
+    <resultMap id="category" type="liga.testsklad.model.Category" autoMapping="true">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="category">
+        SELECT * FROM category;
+    </select>
+
+    <select id="findById" resultMap="category">
+        SELECT * FROM category
+        WHERE id = #{id};
+    </select>
+
+    <insert id="add" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+        INSERT INTO category (name) VALUES
+        (#{name});
+    </insert>
+
+    <delete id="deleteById">
+        DELETE
+        FROM category
+        WHERE id = #{id,jdbcType=BIGINT};
+    </delete>
+
+    <update id="updateById">
+        UPDATE category
+        SET name = #{name}
+        WHERE id = #{id,jdbcType=BIGINT};
+    </update>
+
+</mapper>

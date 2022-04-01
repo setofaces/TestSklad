@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+            <artifactId>warehouse-service</artifactId>
+            <groupId>liga.testsklad</groupId>
+            <version>0.0.1</version>
+    </parent>
+
+    <artifactId>dependency-management-bom</artifactId>
+    <packaging>pom</packaging>
+
+        <properties>
+            <maven.compiler.source>11</maven.compiler.source>
+            <maven.compiler.target>11</maven.compiler.target>
+            <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+            <org.projectlombok.version>1.18.18</org.projectlombok.version>
+            <org.mapstruct-lombok.version>0.2.0</org.mapstruct-lombok.version>
+            <liquibase.version>4.8.0</liquibase.version>
+            <liquibase.plugin.version>4.8.0</liquibase.plugin.version>
+            <mybatis.version>2.2.2</mybatis.version>
+        </properties>
+
+        <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-dependencies</artifactId>
+                    <version>${spring.boot.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-test</artifactId>
+                    <version>${springboot.test.version}</version>
+                    <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>liga.testsklad</groupId>
+                    <artifactId>common-dto</artifactId>
+                    <version>0.0.1</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>liga.testsklad</groupId>
+                    <artifactId>common-services</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>liga.testsklad</groupId>
+                    <artifactId>common-utils</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>liga.testsklad</groupId>
+                    <artifactId>warehouse-service-dto</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                    <version>${guava.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>javax.validation</groupId>
+                    <artifactId>validation-api</artifactId>
+                    <version>${validation-api.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.mapstruct</groupId>
+                    <artifactId>mapstruct</artifactId>
+                    <version>${org.mapstruct.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok-mapstruct-binding</artifactId>
+                    <version>${org.mapstruct-lombok.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-core</artifactId>
+                    <version>${liquibase.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.mybatis.spring.boot</groupId>
+                    <artifactId>mybatis-spring-boot-starter</artifactId>
+                    <version>${mybatis.version}</version>
+                </dependency>
+
+            </dependencies>
+        </dependencyManagement>
+
+        <build>
+            <pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-pmd-plugin</artifactId>
+                        <version>${pmd.plugin.version}</version>
+                    </plugin>
+                </plugins>
+            </pluginManagement>
+        </build>
+</project>

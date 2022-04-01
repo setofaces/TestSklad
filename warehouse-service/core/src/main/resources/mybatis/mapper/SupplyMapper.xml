@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="liga.testsklad.repository.SupplyRepository">
+
+    <resultMap id="supply" type="liga.testsklad.model.Supply" autoMapping="true">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="supply">
+        SELECT * FROM supply;
+    </select>
+
+    <select id="findByName" resultMap="supply">
+        SELECT * FROM supply
+        WHERE position_name = #{name};
+    </select>
+
+    <select id="findByNameOldestOne" resultMap="supply">
+        SELECT * FROM supply
+        WHERE position_name = #{name}
+        ORDER BY exp_date ASC
+        LIMIT 1;
+    </select>
+
+    <insert id="add" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+        INSERT INTO supply (position_name, amount, arr_date, exp_date) VALUES
+        (#{positionName}, #{amount}, #{arrivalDate}, #{expirationDate});
+    </insert>
+
+
+    <delete id="deleteById">
+        DELETE
+        FROM supply
+        WHERE id = #{id,jdbcType=BIGINT};
+    </delete>
+
+    <update id="updateAmountById">
+        UPDATE supply
+        SET  amount = #{amount}
+        WHERE id = #{id,jdbcType=BIGINT};
+    </update>
+
+</mapper>
